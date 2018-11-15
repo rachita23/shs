@@ -2,7 +2,8 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -106,7 +107,7 @@ public class SignUp extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnSignup = new JButton("SignUp");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Patient_Menu obj = new Patient_Menu();
 				obj.Patient_Menu();

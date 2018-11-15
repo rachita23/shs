@@ -55,7 +55,7 @@ public class Refer extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnReferToAnother = new JButton("Refer to Another Doctor");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnReferToAnother.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Refer_Doc obj = new Refer_Doc();
 				obj.Refer_Doc();
@@ -65,7 +65,7 @@ public class Refer extends JFrame {
 		contentPane.add(btnReferToAnother);
 		
 		JButton btnReferToAnother_1 = new JButton("Refer to Another Department");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnReferToAnother_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Refer_Dept obj = new Refer_Dept();
 				obj.Refer_Dept();

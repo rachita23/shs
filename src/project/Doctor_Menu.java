@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Doctor_Menu extends JFrame {
 
@@ -45,8 +47,8 @@ public class Doctor_Menu extends JFrame {
 		JButton btnNewButton = new JButton("View");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Full_Patient obj = new Full_Patient();
-				obj.Full_Patient();
+				FullPatient obj = new FullPatient();
+				obj.FullPatient();
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);

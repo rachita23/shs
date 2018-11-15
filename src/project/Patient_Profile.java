@@ -1,7 +1,8 @@
 package project;
 
 import java.awt.EventQueue;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -81,7 +82,7 @@ public class Patient_Profile extends JFrame {
 		contentPane.add(lb3);
 		
 		JButton btnHistory = new JButton("History");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnHistory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				History obj = new History();
 				obj.History();
