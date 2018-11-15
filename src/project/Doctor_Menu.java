@@ -45,24 +45,40 @@ public class Doctor_Menu extends JFrame {
 		JButton btnNewButton = new JButton("View");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Full_Patient obj = new Full_Patient();
+				obj.Full_Patient();
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Edit");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Edit_Profile_Doc obj = new Edit_Profile_Doc();
+				obj.Edit_Profile_Doc();
 			}
 		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Prescription");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Give_Prescription obj = new Give_Prescription();
+				obj.Give_Prescription();
+			}
+		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Refer");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Refer obj = new Refer();
+				obj.Refer();
+			}
+		});
 		btnNewButton_3.setBounds(220, 170, 89, 23);
 		contentPane.add(btnNewButton_3);
 		
