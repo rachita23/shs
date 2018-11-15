@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.mysql.*;
+import java.sql.*;
 
 public class Login extends JFrame {
 
@@ -70,22 +70,26 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String username = textField.getText();
 				String pass = textField_1.getText();
+				//JOptionPane.showMessageDialog(null, a);
 				if(a==0) {
-					if(username == "admin" && pass == "admin")
+					if(username.equals("admin") && pass.equals("admin"))
 					{
 						Admin_Menu obj = new Admin_Menu();
 						obj.Admin_Menu();
 					}
+					else{
+						JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 				else {
-					String q = "Select password from doctor where name = '" + username + "'";
+					String q = "Select password from doctor where name = '"+ username +"'";
 					try{
 						Connection con = Connection_DB.main();
 						Statement s = con.createStatement();
-						Result r = s.executeStatement(q);
+						ResultSet r = s.executeQuery(q);
 						while(r.next()){
 							String res = r.getString("password");
-							if(pass == res){
+							if(pass.equals(res)){
 								Doctor_Menu obj = new Doctor_Menu();
 								obj.Doctor_Menu();
 							}
