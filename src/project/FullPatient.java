@@ -10,12 +10,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class FullPatient extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	public int id;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -51,17 +55,34 @@ public class FullPatient extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"ID", "Name", "Profile"},
+				{"ID", "Name"},
 			},
 			new String[] {
-				"ID", "Name", "Profile"
+				"ID", "Name"
 			}
 		));
-		table.setBounds(10, 11, 414, 239);
+		table.setBounds(10, 11, 414, 211);
 		contentPane.add(table);		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 251, 414, -238);
 		contentPane.add(scrollPane);
+		
+		textField = new JTextField();
+		textField.setBounds(258, 232, 71, 21);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("View Full");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(339, 232, 85, 31);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblEnter = new JLabel("Enter Patient ID");
+		lblEnter.setBounds(169, 232, 79, 31);
+		contentPane.add(lblEnter);
 	}
 }
