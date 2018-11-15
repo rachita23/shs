@@ -15,15 +15,17 @@ import java.awt.event.ActionEvent;
 public class Doctor_Menu extends JFrame {
 
 	private JPanel contentPane;
+	public int id;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Doctor_Menu() {
+	public static void Doctor_Menu(final int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Doctor_Menu frame = new Doctor_Menu();
+					frame.id = id;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +50,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FullPatient obj = new FullPatient();
-				obj.FullPatient();
+				obj.FullPatient(id);
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);
@@ -58,7 +60,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Edit_Profile_Doc obj = new Edit_Profile_Doc();
-				obj.Edit_Profile_Doc();
+				obj.Edit_Profile_Doc(id);
 			}
 		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
@@ -68,7 +70,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Give_Prescription obj = new Give_Prescription();
-				obj.Give_Prescription();
+				obj.Give_Prescription(id);
 			}
 		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
@@ -77,7 +79,7 @@ public class Doctor_Menu extends JFrame {
 		JButton btnNewButton_3 = new JButton("Refer");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Refer obj = new Refer();
+				Refer obj = new Refer(id);
 				obj.Refer();
 			}
 		});

@@ -15,15 +15,17 @@ public class FullPatient extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	public int id;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void FullPatient() {
+	public static void FullPatient(final int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					FullPatient frame = new FullPatient();
+					frame.id=id;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,6 +45,8 @@ public class FullPatient extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(

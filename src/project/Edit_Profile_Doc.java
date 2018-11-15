@@ -24,15 +24,18 @@ public class Edit_Profile_Doc extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	
+	public int id;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Edit_Profile_Doc() {
+	public static void Edit_Profile_Doc(final int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Edit_Profile_Doc frame = new Edit_Profile_Doc();
+					frame.id = id;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

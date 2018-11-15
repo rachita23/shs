@@ -17,15 +17,18 @@ public class Give_Prescription extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	
+	public int id;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Give_Prescription() {
+	public static void Give_Prescription(final int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Give_Prescription frame = new Give_Prescription();
+					frame.id = id;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

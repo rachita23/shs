@@ -16,15 +16,17 @@ public class Refer extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	 public int id;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Refer() {
+	public static void Refer(final int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Refer frame = new Refer();
+					frame.id = id;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

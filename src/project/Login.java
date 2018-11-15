@@ -91,7 +91,7 @@ public class Login extends JFrame {
 							String res = r.getString("password");
 							if(pass.equals(res)){
 								Doctor_Menu obj = new Doctor_Menu();
-								obj.Doctor_Menu();
+								obj.Doctor_Menu(r.getInt("id"));
 							}
 							else{
 								JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);
