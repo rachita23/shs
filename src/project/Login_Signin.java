@@ -7,9 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class Login_Signin extends JFrame {
@@ -67,8 +71,28 @@ public class Login_Signin extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient_Menu obj = new Patient_Menu();
-				obj.Patient_Menu();
+				String username = textField.getText();
+				String pass = textField_1.getText();
+				String q = "Select password from paitient where name = '"+ username +"'";
+				try{
+					Connection con = Connection_DB.main();
+					Statement s = con.createStatement();
+					ResultSet r = s.executeQuery(q);
+					while(r.next()){
+						String res = r.getString("password");
+						if(pass.equals(res)){
+							Patient_Menu obj = new Patient_Menu();
+							obj.Patient_Menu();
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				}
+				catch (Exception z){
+					z.printStackTrace();
+				}
+				
 			}
 		});
 		btnNewButton.setBounds(86, 67, 89, 23);
