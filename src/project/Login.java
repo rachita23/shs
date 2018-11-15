@@ -2,15 +2,16 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.mysql.*;
 
 public class Login extends JFrame {
 
@@ -67,13 +68,35 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String username = textField.getText();
+				String pass = textField_1.getText();
 				if(a==0) {
-					Admin_Menu obj = new Admin_Menu();
-					obj.Admin_Menu();
+					if(username == "admin" && pass == "admin")
+					{
+						Admin_Menu obj = new Admin_Menu();
+						obj.Admin_Menu();
+					}
 				}
 				else {
-					Doctor_Menu obj = new Doctor_Menu();
-					obj.Doctor_Menu();
+					String q = "Select password from doctor where name = '" + username + "'";
+					try{
+						Connection con = Connection_DB.main();
+						Statement s = con.createStatement();
+						Result r = s.executeStatement(q);
+						while(r.next()){
+							String res = r.getString("password");
+							if(pass == res){
+								Doctor_Menu obj = new Doctor_Menu();
+								obj.Doctor_Menu();
+							}
+							else{
+								JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);
+							}
+						}
+					}
+					catch (Exception z){
+						z.printStackTrace();
+					}
 				}
 			}
 		});
