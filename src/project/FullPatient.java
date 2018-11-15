@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -50,19 +54,30 @@ public class FullPatient extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"ID", "Name"},
-			},
-			new String[] {
-				"ID", "Name"
+		String q = "Select id,name from paitient where referedby ='"+id+"'";
+		try{
+			Connection con = Connection_DB.main();
+			Statement s = con.createStatement();
+			ResultSet r = s.executeQuery(q);
+			while(r.next()){
+				int a = r.getInt("id");
+				String n = r.getString("name");
+				table = new JTable();
+				table.setModel(new DefaultTableModel(
+					new Object[][] {
+						{"ID", "Name"},
+					},
+					new String[] {
+						"ID", "Name"
+					}
+				));
 			}
-		));
 		table.setBounds(10, 11, 414, 211);
-		contentPane.add(table);		
+		contentPane.add(table);	
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 251, 414, -238);
