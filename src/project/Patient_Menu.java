@@ -37,7 +37,7 @@ public class Patient_Menu extends JFrame {
 	 */
 	public Patient_Menu() {
 		setTitle("Patient Menu");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 363, 206);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

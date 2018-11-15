@@ -46,7 +46,7 @@ public class Edit_Profile_Doc extends JFrame {
 	 */
 	public Edit_Profile_Doc() {
 		setTitle("Edit Profile");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 307, 444);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

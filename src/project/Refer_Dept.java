@@ -37,7 +37,7 @@ public class Refer_Dept extends JFrame {
 	 */
 	public Refer_Dept() {
 		setTitle("Refer To Department");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 403, 173);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

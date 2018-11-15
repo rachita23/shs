@@ -37,7 +37,7 @@ public class Doctor_Menu extends JFrame {
 	 */
 	public Doctor_Menu() {
 		setTitle("DoctorMenu");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 363, 258);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
