@@ -3,11 +3,15 @@ package project;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
@@ -125,9 +129,18 @@ public class SignUp extends JFrame {
 				else {
 					gender = "M";
 				}
-				String q = "Insert into paitient (name,password,address,email,gender) values('"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','"+pass+"')";
-				Login_Signin obj = new Login_Signin();
-				obj.Login_Signin();
+				String q = "Insert into paitient values(5,'"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
+				try{
+					Connection con = Connection_DB.main();
+					Statement s = con.createStatement();
+					s.executeUpdate(q);
+					Login_Signin obj = new Login_Signin();
+					obj.Login_Signin();
+				}
+				catch (Exception z){
+					z.printStackTrace();
+				}
+				
 			}
 		});
 		btnSignup.setBounds(90, 230, 89, 23);

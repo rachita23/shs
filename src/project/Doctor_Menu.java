@@ -79,8 +79,8 @@ public class Doctor_Menu extends JFrame {
 		JButton btnNewButton_3 = new JButton("Refer");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Refer obj = new Refer(id);
-				obj.Refer();
+				Refer obj = new Refer();
+				obj.Refer(id);
 			}
 		});
 		btnNewButton_3.setBounds(220, 170, 89, 23);

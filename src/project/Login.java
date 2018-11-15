@@ -82,7 +82,7 @@ public class Login extends JFrame {
 					}
 				}
 				else {
-					String q = "Select password from doctor where name = '"+ username +"'";
+					String q = "Select password,id from doctor where name = '"+ username +"'";
 					try{
 						Connection con = Connection_DB.main();
 						Statement s = con.createStatement();
