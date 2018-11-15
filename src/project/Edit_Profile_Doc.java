@@ -28,7 +28,7 @@ public class Edit_Profile_Doc extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Edit_Profile_Doc() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

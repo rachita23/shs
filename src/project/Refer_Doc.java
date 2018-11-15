@@ -18,7 +18,7 @@ public class Refer_Doc extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Refer_Doc() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -15,7 +15,7 @@ public class Patient_Profile extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Patient_Profile() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -81,6 +81,12 @@ public class Patient_Profile extends JFrame {
 		contentPane.add(lb3);
 		
 		JButton btnHistory = new JButton("History");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				History obj = new History();
+				obj.History();
+			}
+		});
 		btnHistory.setBounds(81, 352, 89, 23);
 		contentPane.add(btnHistory);
 		

@@ -19,7 +19,7 @@ public class Patient_Menu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Patient_Menu() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,20 +45,32 @@ public class Patient_Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Profile");
-		/*btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Doctor_Profile obj = new Doctor_Profile();
-				obj.Doctor_Profile();
+				Patient_Profile obj = new Patient_Profile();
+				obj.Patient_Profile();
 			}
-		});*/
+		});
 		btnNewButton.setBounds(220, 22, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Book");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookAppt obj = new BookAppt();
+				obj.BookAppt();
+			}
+		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Search");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Search_Doc obj = new Search_Doc();
+				obj.Search_Doc();
+			}
+		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
 		contentPane.add(btnNewButton_2);
 		

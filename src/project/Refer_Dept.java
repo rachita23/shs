@@ -19,7 +19,7 @@ public class Refer_Dept extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Refer_Dept() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

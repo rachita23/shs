@@ -21,7 +21,7 @@ public class Give_Prescription extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Give_Prescription() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
