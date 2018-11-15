@@ -117,6 +117,8 @@ public class Doctor_Profile extends JFrame {
 		JButton btnNewButton = new JButton("Book Appointment");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BookAppt obj = new BookAppt();
+				obj.BookAppt();
 			}
 		});
 		btnNewButton.setBounds(81, 369, 126, 39);
