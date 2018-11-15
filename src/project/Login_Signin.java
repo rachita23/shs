@@ -63,10 +63,22 @@ public class Login_Signin extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Patient_Menu obj = new Patient_Menu();
+				obj.Patient_Menu();
+			}
+		});
 		btnNewButton.setBounds(86, 67, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnSignUp = new JButton("Sign Up");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SignUp obj = new SignUp();
+				obj.SignUp();
+			}
+		});
 		btnSignUp.setBounds(185, 67, 89, 23);
 		contentPane.add(btnSignUp);
 	}

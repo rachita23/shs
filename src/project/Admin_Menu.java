@@ -48,24 +48,50 @@ public class Admin_Menu extends JFrame {
 		JButton btnNewButton = new JButton("Add");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Add_Doctor obj = new Add_Doctor();
+				obj.Add_Doctor();
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Change");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Change_Doc obj = new Change_Doc();
+				obj.Change_Doc();
+			}
+		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("View");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FullDoc_Admin obj = new FullDoc_Admin();
+				obj.FullDoc_Admin();
+			}
+		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("View");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FullPatient_Admin obj = new FullPatient_Admin();
+				obj.FullPatient_Admin();
+			}
+		});
 		btnNewButton_3.setBounds(220, 170, 89, 23);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Update");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Update_DocProfile obj = new Update_DocProfile();
+				obj.Update_DocProfile();
+			}
+		});
 		btnNewButton_4.setBounds(220, 218, 89, 23);
 		contentPane.add(btnNewButton_4);
 		

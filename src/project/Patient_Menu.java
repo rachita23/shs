@@ -45,10 +45,12 @@ public class Patient_Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Profile");
-		btnNewButton.addActionListener(new ActionListener() {
+		/*btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Doctor_Profile obj = new Doctor_Profile();
+				obj.Doctor_Profile();
 			}
-		});
+		});*/
 		btnNewButton.setBounds(220, 22, 89, 23);
 		contentPane.add(btnNewButton);
 		

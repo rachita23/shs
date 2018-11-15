@@ -106,6 +106,12 @@ public class SignUp extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnSignup = new JButton("SignUp");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Patient_Menu obj = new Patient_Menu();
+				obj.Patient_Menu();
+			}
+		});
 		btnSignup.setBounds(90, 230, 89, 23);
 		contentPane.add(btnSignup);
 	}
