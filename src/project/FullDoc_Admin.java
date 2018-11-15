@@ -17,7 +17,7 @@ public class FullDoc_Admin extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void FullDoc_Admin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

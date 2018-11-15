@@ -46,7 +46,7 @@ public class Main extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login obj = new Login();
-				obj.New_Login();
+				obj.New_Login(0);
 			}
 		});
 		btnNewButton.setBounds(168, 30, 109, 40);
@@ -56,7 +56,7 @@ public class Main extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login obj = new Login();
-				obj.New_Login();
+				obj.New_Login(1);
 			}
 		});
 		btnNewButton_1.setBounds(168, 101, 109, 40);

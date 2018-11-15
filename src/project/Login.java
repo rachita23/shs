@@ -17,15 +17,16 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	public int a;
 	/**
 	 * Launch the application.
 	 */
-	public static void New_Login() {
+	public static void New_Login(int a) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Login frame = new Login();
+					frame.a = a;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +54,6 @@ public class Login extends JFrame {
 		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(10, 36, 57, 14);
 		contentPane.add(lblPassword);
-		
 		textField = new JTextField();
 		textField.setBounds(86, 8, 165, 20);
 		contentPane.add(textField);
@@ -67,8 +67,14 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Admin_Menu obj = new Admin_Menu();
-				obj.Admin_Menu();
+				if(a==0) {
+					Admin_Menu obj = new Admin_Menu();
+					obj.Admin_Menu();
+				}
+				else {
+					Doctor_Menu obj = new Doctor_Menu();
+					obj.Doctor_Menu();
+				}
 			}
 		});
 		btnNewButton.setBounds(86, 67, 89, 23);

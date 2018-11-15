@@ -17,7 +17,7 @@ public class Doctor_Menu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Doctor_Menu() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
