@@ -66,7 +66,7 @@ public class Patient_Profile extends JFrame {
 			//JOptionPane.showMessageDialog(this, name+gender+eid+address+cr+doc+age+rn);
 			
 		}
-		catch (Exception z){
+		catch (Exception z) {
 			z.printStackTrace();
 		}
 		JLabel lblNewLabel = new JLabel("Name:");
