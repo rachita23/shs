@@ -75,7 +75,7 @@ public class Login_Signin extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnSignUp = new JButton("Sign Up");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SignUp obj = new SignUp();
 				obj.SignUp();
