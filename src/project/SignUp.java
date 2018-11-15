@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.ButtonGroup;
 
 public class SignUp extends JFrame {
 
@@ -43,7 +45,7 @@ public class SignUp extends JFrame {
 	public SignUp() {
 		setTitle("SignUP");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 307, 303);
+		setBounds(100, 100, 344, 365);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,14 +90,16 @@ public class SignUp extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
+		ButtonGroup btn = new ButtonGroup();
+		
 		JRadioButton rdbtnM = new JRadioButton("M");
 		rdbtnM.setBounds(75, 74, 33, 23);
 		contentPane.add(rdbtnM);
-		
+		btn.add(rdbtnM);
 		JRadioButton rdbtnF = new JRadioButton("F");
-		rdbtnF.setBounds(128, 74, 39, 23);
+		rdbtnF.setBounds(150, 76, 39, 23);
 		contentPane.add(rdbtnF);
-		
+		btn.add(rdbtnF);
 		textField_3 = new JTextField();
 		textField_3.setBounds(81, 129, 181, 20);
 		contentPane.add(textField_3);
@@ -109,8 +113,21 @@ public class SignUp extends JFrame {
 		JButton btnSignup = new JButton("SignUp");
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient_Menu obj = new Patient_Menu();
-				obj.Patient_Menu();
+				String name = textField.getText();
+				String pass = textField_1.getText();
+				String age = textField_2.getText();
+				String email = textField_3.getText();
+				String address = textField_4.getText();
+				String gender;
+				if(rdbtnF.isSelected()) {
+					gender = "F";
+				}
+				else {
+					gender = "M";
+				}
+				String q = "Insert into paitient (name,password,address,email,gender) values('"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','"+pass+"')";
+				Login_Signin obj = new Login_Signin();
+				obj.Login_Signin();
 			}
 		});
 		btnSignup.setBounds(90, 230, 89, 23);

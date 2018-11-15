@@ -103,6 +103,7 @@ public class Login_Signin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				SignUp obj = new SignUp();
 				obj.SignUp();
+				
 			}
 		});
 		btnSignUp.setBounds(185, 67, 89, 23);
