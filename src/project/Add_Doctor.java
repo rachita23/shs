@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -150,6 +151,12 @@ public class Add_Doctor extends JFrame {
 		contentPane.add(lblApttime);
 		
 		JButton btnUpdate = new JButton("Update");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateAppt obj = new UpdateAppt();
+				obj.UpdateAppt();
+			}
+		});
 		btnUpdate.setBounds(81, 327, 89, 23);
 		contentPane.add(btnUpdate);
 	}

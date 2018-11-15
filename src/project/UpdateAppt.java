@@ -2,7 +2,8 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,7 +25,7 @@ public class UpdateAppt extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void UpdateAppt() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,7 +43,7 @@ public class UpdateAppt extends JFrame {
 	 */
 	public UpdateAppt() {
 		setTitle("Appointment");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 307, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
