@@ -8,6 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class Main extends JFrame {
@@ -71,5 +75,20 @@ public class Main extends JFrame {
 		});
 		btnNewButton_2.setBounds(168, 170, 109, 40);
 		contentPane.add(btnNewButton_2);
+		Connection con = Connection_DB.main();
+		Statement s;
+		try {
+			s = con.createStatement();
+			String q = "Select * from department";
+			ResultSet r = s.executeQuery(q);
+			while(r.next()) {
+				System.out.println(r.getString(1));
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 	}
 }
