@@ -129,7 +129,7 @@ public class SignUp extends JFrame {
 				else {
 					gender = "M";
 				}
-				String q = "Insert into paitient values(5,'"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
+				String q = "Insert into paitient values(12,'"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 				try{
 					Connection con = Connection_DB.main();
 					Statement s = con.createStatement();
