@@ -35,7 +35,7 @@ public class FullPatient_Admin extends JFrame {
 	 */
 	public FullPatient_Admin() {
 		setTitle("Full view");
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 514, 284);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -39,7 +39,7 @@ public class Search_Doc extends JFrame {
 	 */
 	public Search_Doc() {
 		setTitle("Search Doctors");
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 363, 206);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
