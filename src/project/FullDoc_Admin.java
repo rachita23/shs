@@ -30,9 +30,7 @@ public class FullDoc_Admin extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public FullDoc_Admin() {
 		setTitle("Full view");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
