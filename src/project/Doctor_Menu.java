@@ -55,7 +55,7 @@ public class Doctor_Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Edit");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Edit_Profile_Doc obj = new Edit_Profile_Doc();
 				obj.Edit_Profile_Doc();
@@ -65,7 +65,7 @@ public class Doctor_Menu extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Prescription");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Give_Prescription obj = new Give_Prescription();
 				obj.Give_Prescription();
@@ -75,7 +75,7 @@ public class Doctor_Menu extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Refer");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Refer obj = new Refer();
 				obj.Refer();
