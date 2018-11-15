@@ -73,7 +73,7 @@ public class Login_Signin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String username = textField.getText();
 				String pass = textField_1.getText();
-				String q = "Select password from paitient where name = '"+ username +"'";
+				String q = "Select password,id from paitient where name = '"+ username +"'";
 				try{
 					Connection con = Connection_DB.main();
 					Statement s = con.createStatement();
@@ -81,8 +81,9 @@ public class Login_Signin extends JFrame {
 					while(r.next()){
 						String res = r.getString("password");
 						if(pass.equals(res)){
-							Patient_Menu obj = new Patient_Menu();
-							obj.Patient_Menu();
+							int a = r.getInt("id");
+							Patient_Menu obj = new Patient_Menu(a);
+							obj.Patient_Menu(a);
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);

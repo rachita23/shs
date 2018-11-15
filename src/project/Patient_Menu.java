@@ -13,18 +13,19 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 
 public class Patient_Menu extends JFrame {
-
+	public int id;
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Patient_Menu() {
+	public static void Patient_Menu(int a) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Patient_Menu frame = new Patient_Menu();
+					Patient_Menu frame = new Patient_Menu(a);
 					frame.setVisible(true);
+					frame.id = a;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,7 +36,7 @@ public class Patient_Menu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Patient_Menu() {
+	public Patient_Menu(int a) {
 		setTitle("Patient Menu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 363, 206);
@@ -47,8 +48,8 @@ public class Patient_Menu extends JFrame {
 		JButton btnNewButton = new JButton("Profile");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient_Profile obj = new Patient_Profile();
-				obj.Patient_Profile();
+				Patient_Profile obj = new Patient_Profile(1);
+				obj.Patient_Profile(id);
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);

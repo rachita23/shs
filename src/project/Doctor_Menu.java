@@ -20,7 +20,7 @@ public class Doctor_Menu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void Doctor_Menu(final int id) {
+	public static void Doctor_Menu(int id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
