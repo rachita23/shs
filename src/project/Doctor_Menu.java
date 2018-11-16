@@ -2,30 +2,35 @@ package project;
 
 import java.awt.EventQueue;
 
+import javax.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
 
 public class Doctor_Menu extends JFrame {
 
 	private JPanel contentPane;
-	public int id;
+	public ResultSet doc;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Doctor_Menu(int id) {
+	public static void Doctor_Menu(ResultSet doc) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Doctor_Menu frame = new Doctor_Menu();
-					frame.id = id;
+					frame.doc = doc;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +55,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FullPatient obj = new FullPatient();
-				obj.FullPatient(id);
+				obj.FullPatient(doc);
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);
@@ -60,7 +65,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Edit_Profile_Doc obj = new Edit_Profile_Doc();
-				obj.Edit_Profile_Doc(id);
+				obj.Edit_Profile_Doc(doc);
 			}
 		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
@@ -70,7 +75,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Give_Prescription obj = new Give_Prescription();
-				obj.Give_Prescription(id);
+				obj.Give_Prescription(doc);
 			}
 		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
@@ -80,7 +85,7 @@ public class Doctor_Menu extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Refer obj = new Refer();
-				obj.Refer(id);
+				obj.Refer(doc);
 			}
 		});
 		btnNewButton_3.setBounds(220, 170, 89, 23);

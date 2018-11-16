@@ -82,7 +82,7 @@ public class Login extends JFrame {
 					}
 				}
 				else {
-					String q = "Select password,id from doctor where name = '"+ username +"'";
+					String q = "Select * from doctor where name = '"+ username +"'";
 					try{
 						Connection con = Connection_DB.main();
 						Statement s = con.createStatement();
@@ -91,7 +91,7 @@ public class Login extends JFrame {
 							String res = r.getString("password");
 							if(pass.equals(res)){
 								Doctor_Menu obj = new Doctor_Menu();
-								obj.Doctor_Menu(r.getInt("id"));
+								obj.Doctor_Menu(r);
 							}
 							else{
 								JOptionPane.showMessageDialog(null, "Invalid Username or Password..!!", "alert", JOptionPane.ERROR_MESSAGE);

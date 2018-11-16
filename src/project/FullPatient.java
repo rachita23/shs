@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,18 +21,18 @@ public class FullPatient extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	public int id;
+	public ResultSet doc;
 	private JTextField textField;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void FullPatient(final int id) {
+	public static void FullPatient(ResultSet doc) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					FullPatient frame = new FullPatient();
-					frame.id=id;
+					frame.doc=doc;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,26 +53,25 @@ public class FullPatient extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		String q = "Select id,name from paitient where referedby ='"+id+"'";
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"ID", "Name"},
+			},
+			new String[] {
+				"ID", "Name"
+			}
+		));
+		DefaultTableModel md = (DefaultTableModel)table.getModel();
+		
 		try{
+			String q = "Select id,name from paitient where referedby ='"+doc.getString("id")+"'";
 			Connection con = Connection_DB.main();
 			Statement s = con.createStatement();
 			ResultSet r = s.executeQuery(q);
 			while(r.next()){
-				int a = r.getInt("id");
-				String n = r.getString("name");
-				table = new JTable();
-				table.setModel(new DefaultTableModel(
-					new Object[][] {
-						{"ID", "Name"},
-					},
-					new String[] {
-						"ID", "Name"
-					}
-				));
+				md.addRow(new Object[]{Integer.toString(r.getInt("id")),r.getString("name")});
 			}
-		table.setBounds(10, 11, 414, 211);
-		contentPane.add(table);	
 		}
 		catch(Exception e){
 			e.printStackTrace();

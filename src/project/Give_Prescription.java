@@ -2,11 +2,17 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -18,17 +24,17 @@ public class Give_Prescription extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	
-	public int id;
+	public ResultSet doc;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Give_Prescription(final int id) {
+	public static void Give_Prescription(ResultSet doc) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Give_Prescription frame = new Give_Prescription();
-					frame.id = id;
+					frame.doc = doc;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -85,6 +91,26 @@ public class Give_Prescription extends JFrame {
 		contentPane.add(textField_3);
 		
 		JButton btnPrescribe = new JButton("Prescribe");
+		btnPrescribe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				try{
+					String patname = textField.getText();
+					String q = "Select id from paitient where name = '"+patname+"'";
+					Connection con = Connection_DB.main();
+					Statement s = con.createStatement();
+					ResultSet r1 = s.executeQuery(q);
+					int patid = r1.getInt("id");
+					String q1 = "Update into History"+patid+" set prescription = '"+textField_1.getText()+"', tests = '"+textField_2.getText()+"', disease = '"+textField_3.getText()+"'";
+					s.executeUpdate(q);
+				}
+				catch(Exception z){
+					z.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "Prescription Updated..!!");
+				Doctor_Menu obj = new Doctor_Menu();
+				obj.Doctor_Menu(doc);
+			}
+		});
 		btnPrescribe.setBounds(110, 175, 89, 23);
 		contentPane.add(btnPrescribe);
 	}
