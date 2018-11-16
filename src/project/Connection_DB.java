@@ -19,4 +19,14 @@ public class Connection_DB {
 			e.printStackTrace();
 		}
 		return con;
-	}}
+	}
+	public static void close()
+	{
+		try {
+			con.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+}

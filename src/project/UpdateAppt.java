@@ -21,15 +21,16 @@ public class UpdateAppt extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-
+	Appt a;
 	/**
 	 * Launch the application.
 	 */
-	public static void UpdateAppt() {
+	public static void UpdateApp(final Appt a) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					UpdateAppt frame = new UpdateAppt();
+					frame.a = a;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -114,6 +115,13 @@ public class UpdateAppt extends JFrame {
 		contentPane.add(textField_6);
 		
 		JButton btnNewButton = new JButton("Update");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				a.apt = ";"+textField.getText()+";"+textField_1.getText()+";"+textField_2.getText()+
+						";"+textField_3.getText()+";"+textField_4.getText()+";"+textField_5.getText()+";"+textField_6.getText();
+			}
+		});
 		btnNewButton.setBounds(100, 213, 89, 23);
 		contentPane.add(btnNewButton);
 	}
