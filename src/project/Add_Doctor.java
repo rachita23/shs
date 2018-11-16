@@ -97,7 +97,7 @@ public class Add_Doctor extends JFrame {
 		contentPane.add(txt3);
 		txt3.setColumns(10);
 		
-		JRadioButton rdbtnM = new JRadioButton("M");
+		final JRadioButton rdbtnM = new JRadioButton("M");
 		rdbtnM.setBounds(75, 74, 33, 23);
 		contentPane.add(rdbtnM);
 		
