@@ -43,7 +43,7 @@ public class Patient_Profile extends JFrame {
 		setBounds(100, 100, 307, 425);
 		contentPane = new JPanel();
 		String name = "",gender=null,eid=null,address=null,loc=null,cr=null,doc=null;
-		int age=0,rn=0;
+		int age=0,rn=0,id=0;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -62,7 +62,17 @@ public class Patient_Profile extends JFrame {
 				doc = rs.getString("referedto");
 				age = rs.getInt("age");
 				rn = rs.getInt("roomno");
+				id = rs.getInt("id");
 			}
+			JButton btnHistory = new JButton("History");
+			btnHistory.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					History obj = new History();
+					obj.History(rs);
+				}
+			});
+			btnHistory.setBounds(81, 352, 89, 23);
+			contentPane.add(btnHistory);
 			//JOptionPane.showMessageDialog(this, name+gender+eid+address+cr+doc+age+rn);
 			
 		}
@@ -113,15 +123,7 @@ public class Patient_Profile extends JFrame {
 		contentPane.add(lb3);
 		lb3.setText(gender);
 		
-		JButton btnHistory = new JButton("History");
-		btnHistory.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				History obj = new History();
-				obj.History();
-			}
-		});
-		btnHistory.setBounds(81, 352, 89, 23);
-		contentPane.add(btnHistory);
+		
 		
 		JLabel lblLocation = new JLabel("Location:");
 		lblLocation.setBounds(10, 224, 46, 14);

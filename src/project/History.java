@@ -3,6 +3,7 @@ package project;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,16 +16,17 @@ public class History extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-
+	private ResultSet r;
 	/**
 	 * Launch the application.
 	 */
-	public static void History() {
+	public static void History(ResultSet r) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					History frame = new History();
 					frame.setVisible(true);
+					frame.r = r;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
