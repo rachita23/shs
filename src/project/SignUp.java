@@ -123,17 +123,20 @@ public class SignUp extends JFrame {
 				String email = textField_3.getText();
 				String address = textField_4.getText();
 				String gender;
+				int id = 15;
 				if(rdbtnF.isSelected()) {
 					gender = "F";
 				}
 				else {
 					gender = "M";
 				}
-				String q = "Insert into paitient values(12,'"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 				try{
+					String q = "Insert into paitient values('"+id+"','"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 					Connection con = Connection_DB.main();
 					Statement s = con.createStatement();
 					s.executeUpdate(q);
+					String create = "CREATE TABLE History"+id+"(visit_date TIMESTAMP,"+"discharge_date TIMESTAMP,"+"doctor varchar(50),"+"prescription varchar(100),"+"tests varchar(100),"+"disease varchar(20),"+"critical varchar(3))";
+					s.executeUpdate(create);
 					Login_Signin obj = new Login_Signin();
 					obj.Login_Signin();
 				}

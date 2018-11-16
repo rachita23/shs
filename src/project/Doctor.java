@@ -1,4 +1,4 @@
-
+package project;
 public class Doctor extends Person {
 
 	private int id;
