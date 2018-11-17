@@ -43,7 +43,7 @@ public class Patient_Profile extends JFrame {
 		setBounds(100, 100, 307, 425);
 		contentPane = new JPanel();
 		String name = "",gender=null,eid=null,address=null,loc=null,cr=null,doc=null;
-		int age=0,rn=0,id=0;
+		int age=0,rn=0;//,id=0;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -68,7 +68,7 @@ public class Patient_Profile extends JFrame {
 			btnHistory.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					History obj = new History();
-					obj.History(rs);
+					obj.History();
 				}
 			});
 			btnHistory.setBounds(81, 352, 89, 23);

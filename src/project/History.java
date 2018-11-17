@@ -3,10 +3,13 @@ package project;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -16,17 +19,17 @@ public class History extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private ResultSet r;
+	//private ResultSet r;
 	/**
 	 * Launch the application.
 	 */
-	public static void History(ResultSet r) {
+	public static void History() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					History frame = new History();
 					frame.setVisible(true);
-					frame.r = r;
+					//frame.r = r;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,6 +58,7 @@ public class History extends JFrame {
 				"Visit_Date", "Dischare_Date", "Doctor", "Prescription", "Tests", "Disease", "Status", "RoomNo."
 			}
 		));
+		
 		table.getColumnModel().getColumn(1).setPreferredWidth(88);
 		table.getColumnModel().getColumn(1).setMinWidth(30);
 		table.setBounds(10, 11, 594, 249);

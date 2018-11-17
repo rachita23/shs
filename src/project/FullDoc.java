@@ -2,9 +2,13 @@ package project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
@@ -51,7 +55,24 @@ public class FullDoc extends JFrame {
 				"Name", "Position", "Department", "Profile"
 			}
 		));
-		table.setBounds(10, 11, 414, 239);
-		contentPane.add(table);		
+		DefaultTableModel md = (DefaultTableModel)table.getModel();
+		try{
+			Connection con = Connection_DB.main();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM doctor");  
+			
+			while (rs.next())
+			{
+				md.addRow(new Object[] {rs.getString(2), rs.getString(7), Integer.toString(rs.getInt(9))});
+			}
+			
+			Connection_DB.close();
+		}
+		catch (Exception z){
+			z.printStackTrace();
+		}
+		JScrollPane jsp = new JScrollPane(table);
+		jsp.setBounds(10, 11, 596, 241);
+		contentPane.add(jsp);				
 	}
 }
