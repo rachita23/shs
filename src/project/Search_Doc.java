@@ -40,7 +40,7 @@ public class Search_Doc extends JFrame {
 	public Search_Doc() {
 		setTitle("Search Doctors");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 363, 206);
+		setBounds(100, 100, 395, 231);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,17 +50,29 @@ public class Search_Doc extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Search obj = new Search();
-				obj.Search();
+				obj.Search(0);
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Search");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Search obj = new Search();
+				obj.Search(1);
+			}
+		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("View");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FullDoc obj = new FullDoc();
+				obj.FullDoc();
+			}
+		});
 		btnNewButton_2.setBounds(220, 122, 89, 23);
 		contentPane.add(btnNewButton_2);
 		

@@ -12,6 +12,9 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FullDoc extends JFrame {
 
@@ -40,7 +43,7 @@ public class FullDoc extends JFrame {
 	public FullDoc() {
 		setTitle("Full view");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 596, 376);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -49,10 +52,10 @@ public class FullDoc extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Name", "Position", "Department", "Profile"},
+				{"Name", "Position", "Department"},
 			},
 			new String[] {
-				"Name", "Position", "Department", "Profile"
+				"Name", "Position", "Department"
 			}
 		));
 		DefaultTableModel md = (DefaultTableModel)table.getModel();
@@ -72,7 +75,17 @@ public class FullDoc extends JFrame {
 			z.printStackTrace();
 		}
 		JScrollPane jsp = new JScrollPane(table);
-		jsp.setBounds(10, 11, 596, 241);
+		jsp.setBounds(10, 11, 562, 284);
 		contentPane.add(jsp);				
+		
+		JButton btnNewButton = new JButton("Back to Search");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Search_Doc obj = new Search_Doc();
+				obj.Search_Doc();
+			}
+		});
+		btnNewButton.setBounds(219, 305, 130, 31);
+		contentPane.add(btnNewButton);
 	}
 }
