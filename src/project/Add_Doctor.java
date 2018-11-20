@@ -120,7 +120,7 @@ public class Add_Doctor extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String name = txt1.getText();
 				String pass = txt2.getText();
-				String age = txt3.getText();
+				int age = Integer.parseInt(txt3.getText());
 				String email = txt4.getText();
 				String address = txt5.getText();
 				String gender;
