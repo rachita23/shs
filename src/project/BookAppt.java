@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 public class BookAppt extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField name;
 	public int did;
 	public int pid;
 	/**
@@ -52,10 +51,6 @@ public class BookAppt extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(10, 11, 145, 14);
-		contentPane.add(lblName);
 		
 		JComboBox comboBox = new JComboBox();
 		try {
@@ -143,13 +138,6 @@ public class BookAppt extends JFrame {
 			}});
 		btnBook.setBounds(10, 116, 80, 20);
 		contentPane.add(btnBook);
-		
-		name = new JTextField();
-		name.setBounds(59, 9, 96, 19);
-		contentPane.add(name);
-		name.setColumns(10);
-		
-		String n = name.getText();
 		
 	}
 }

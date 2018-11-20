@@ -57,8 +57,8 @@ public class Patient_Menu extends JFrame {
 		JButton btnNewButton_1 = new JButton("Book");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BookAppt obj = new BookAppt();
-				obj.BookAppt();
+				BookAppt_Smart obj = new BookAppt_Smart();
+				obj.BookAppt_Smart(id);
 			}
 		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);
