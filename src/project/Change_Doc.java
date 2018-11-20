@@ -91,14 +91,16 @@ public class Change_Doc extends JFrame {
 						ps.setInt(3, id);
 						ps.executeUpdate();
 						ps.close();
+						Connection_DB.close();
+						dispose();
 						
 					}
 					else
 					{
 						JOptionPane.showMessageDialog(null, "Invalid Paitient ID..!!", "alert", JOptionPane.ERROR_MESSAGE);
+						Connection_DB.close();
 					}
 					
-					Connection_DB.close();
 				}
 				catch (Exception z){
 					z.printStackTrace();
