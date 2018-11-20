@@ -21,6 +21,7 @@ public class Doctor_Menu extends JFrame {
 
 	private JPanel contentPane;
 	public ResultSet doc;
+	Doctor d;
 
 	/**
 	 * Launch the application.
@@ -43,6 +44,7 @@ public class Doctor_Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Doctor_Menu() {
+		d = new Doctor();
 		setTitle("DoctorMenu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 363, 258);
@@ -64,8 +66,8 @@ public class Doctor_Menu extends JFrame {
 		JButton btnNewButton_1 = new JButton("Edit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Edit_Profile_Doc obj = new Edit_Profile_Doc();
-				obj.Edit_Profile_Doc(doc);
+				Add_Doctor obj = new Add_Doctor();
+				obj.Add_Doctor(d);
 			}
 		});
 		btnNewButton_1.setBounds(220, 70, 89, 23);

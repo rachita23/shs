@@ -154,8 +154,8 @@ public class Edit_Profile_Doc extends JFrame {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//UpdateAppt obj = new UpdateAppt();
-				//obj.UpdateAppt(doc);
+				UpdateAppt obj = new UpdateAppt();
+				obj.UpdateAppt(doc);
 			}
 		});
 		btnUpdate.setBounds(81, 327, 89, 23);
