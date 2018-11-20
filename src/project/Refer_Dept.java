@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.Statement;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
@@ -67,7 +67,7 @@ public class Refer_Dept extends JFrame {
 		JButton btnRefer = new JButton("Refer");
 		btnRefer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				docname = textField.getText();
+				String docname = textField.getText();
 				try{
 					String q = "Select id from doctor where name = '"+docname+"'";
 					Connection con = Connection_DB.main();
@@ -76,8 +76,8 @@ public class Refer_Dept extends JFrame {
 					String q2 = "Update into paitient set referedto = "+r1.getInt("id")+", referedby = "+doc.getInt("id");
 					s.executeUpdate(q2);
 				}
-				catch(Exception e){
-					e.printStackTrace();
+				catch(Exception e1){
+					e1.printStackTrace();
 				}
 				JOptionPane.showMessageDialog(null, "Referral Updated..!!");
 				Doctor_Menu obj = new Doctor_Menu();

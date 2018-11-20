@@ -65,13 +65,14 @@ public class FullPatient extends JFrame {
 		DefaultTableModel md = (DefaultTableModel)table.getModel();
 		
 		try{
-			String q = "Select id,name from paitient where referedby ='"+doc.getString("id")+"'";
+			String q = "Select id,name from paitient where referedto ='"+doc.getInt("id")+"'";
 			Connection con = Connection_DB.main();
 			Statement s = con.createStatement();
 			ResultSet r = s.executeQuery(q);
 			while(r.next()){
-				md.addRow(new Object[]{Integer.toString(r.getInt("id")),r.getString("name")});
+				md.addRow(new Object[]{Integer.toString(r.getInt(1)),r.getString(2)});
 			}
+			Connection_DB.close();
 		}
 		catch(Exception e){
 			e.printStackTrace();

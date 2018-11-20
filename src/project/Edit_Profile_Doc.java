@@ -62,7 +62,7 @@ public class Edit_Profile_Doc extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		try {
 		JLabel lblNewLabel = new JLabel("Name:");
 		lblNewLabel.setBounds(10, 21, 46, 14);
 		contentPane.add(lblNewLabel);
@@ -154,13 +154,16 @@ public class Edit_Profile_Doc extends JFrame {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UpdateAppt obj = new UpdateAppt();
-				obj.UpdateAppt(doc);
+				//UpdateAppt obj = new UpdateAppt();
+				//obj.UpdateAppt(doc);
 			}
 		});
 		btnUpdate.setBounds(81, 327, 89, 23);
 		contentPane.add(btnUpdate);
-		
+		}
+		catch(Exception z1){
+			z1.printStackTrace();
+		}
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

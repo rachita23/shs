@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.sql.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.beans.Statement;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -82,7 +82,7 @@ public class Refer extends JFrame {
 			JButton btnReferToAnother_1 = new JButton("Refer to Another Department");
 			btnReferToAnother_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					String pos;
+					String pos = null;
 					try {
 						pos = doc.getString("position");
 					} catch (SQLException e1) {

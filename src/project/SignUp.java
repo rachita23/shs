@@ -123,7 +123,7 @@ public class SignUp extends JFrame {
 				String email = textField_3.getText();
 				String address = textField_4.getText();
 				String gender;
-				int id = 15;
+				int id ;//= 16;
 				if(rdbtnF.isSelected()) {
 					gender = "F";
 				}
@@ -131,9 +131,19 @@ public class SignUp extends JFrame {
 					gender = "M";
 				}
 				try{
-					String q = "Insert into paitient values('"+id+"','"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 					Connection con = Connection_DB.main();
 					Statement s = con.createStatement();
+					ResultSet rs = s.executeQuery("SELECT MAX(id) FROM paitient");  
+					
+					if (rs.next())
+					{
+						id = rs.getInt(1)+1;
+					}
+					else
+					{
+						id = 2018001;
+					}
+					String q = "Insert into paitient values('"+id+"','"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 					s.executeUpdate(q);
 					String create = "CREATE TABLE History"+id+"(visit_date TIMESTAMP,"+"discharge_date TIMESTAMP,"+"doctor varchar(50),"+"prescription varchar(100),"+"tests varchar(100),"+"disease varchar(20),"+"critical varchar(3))";
 					s.executeUpdate(create);

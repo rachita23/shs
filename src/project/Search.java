@@ -23,7 +23,7 @@ import java.awt.Font;
 public class Search extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField sr;
 	private JTable table;
 	private JTable table_1;
 	private int a;
@@ -58,33 +58,55 @@ public class Search extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 24, 328, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		sr = new JTextField();
+		sr.setBounds(10, 24, 328, 20);
+		contentPane.add(sr);
+		sr.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Enter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String search = textField.getText();
+				String search = sr.getText();
 				DefaultTableModel md = (DefaultTableModel)table.getModel();
 				try{
 					Connection con = Connection_DB.main();
 					Statement stmt = con.createStatement();
 					ResultSet rs;
 					if(a==0) {
-						rs = stmt.executeQuery("SELECT * FROM doctor where name = '"+search+"'");
+						rs = stmt.executeQuery("select * from doctor where name = '"+search+"'");
 					}
 					else {
-						rs = stmt.executeQuery("SELECT * FROM doctor where position = '"+search+"'");
+						rs = stmt.executeQuery("select * from doctor where position = '"+search+"'");
 					}
 					
-					while (rs.next())
-					{
-						md.addRow(new Object[] {rs.getString(2), rs.getString(7), Integer.toString(rs.getInt(9))});
+					table = new JTable();
+					table.setModel(new DefaultTableModel(
+						new Object[][] {
+							{"Name", "Position", "Department"},
+						},
+						new String[] {
+							"Name", "Position", "Department"
+						}
+					));
+					md = (DefaultTableModel)table.getModel();
+					
+					try{
+						
+						while(rs.next()){
+							String s = "Select name from department where id = "+Integer.toString(rs.getInt("dept"));
+							ResultSet r = stmt.executeQuery(s);
+							md.addRow(new Object[]{rs.getString("name"),rs.getString("position"),r.getString("name")});
+						}
+					}
+					catch(Exception e1){
+						e1.printStackTrace();
 					}
 					
-					Connection_DB.close();
+					
+					table.setBounds(10, 68, 328, 169);
+					contentPane.add(table);		
+					
+					//Connection_DB.close();
 				}
 				catch (Exception z){
 					z.printStackTrace();
@@ -98,17 +120,7 @@ public class Search extends JFrame {
 		btnNewButton.setBounds(356, 23, 68, 23);
 		contentPane.add(btnNewButton);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Name", "Position", "Department"},
-			},
-			new String[] {
-				"Name", "Position", "Department"
-			}
-		));
-		table.setBounds(10, 68, 328, 169);
-		contentPane.add(table);		
+		
 		
 		btnView = new JButton("View");
 		btnView.setBounds(341, 256, 85, 21);
