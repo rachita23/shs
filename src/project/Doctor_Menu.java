@@ -47,7 +47,7 @@ public class Doctor_Menu extends JFrame {
 		d = new Doctor();
 		setTitle("DoctorMenu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 363, 258);
+		setBounds(100, 100, 363, 292);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -108,6 +108,10 @@ public class Doctor_Menu extends JFrame {
 		JLabel lblToViewAll_1 = new JLabel("To Refer Patient to another Doctor");
 		lblToViewAll_1.setBounds(31, 174, 169, 19);
 		contentPane.add(lblToViewAll_1);
+		
+		JButton btnLogout = new JButton("LogOut");
+		btnLogout.setBounds(132, 224, 85, 21);
+		contentPane.add(btnLogout);
 	}
 
 }

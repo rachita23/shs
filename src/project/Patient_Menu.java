@@ -39,7 +39,7 @@ public class Patient_Menu extends JFrame {
 	public Patient_Menu() {
 		setTitle("Patient Menu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 363, 206);
+		setBounds(100, 100, 363, 245);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -85,6 +85,9 @@ public class Patient_Menu extends JFrame {
 		JLabel lblToViewAll = new JLabel("To Search for a Doctor");
 		lblToViewAll.setBounds(31, 122, 151, 18);
 		contentPane.add(lblToViewAll);
+		
+		JButton btnLogout = new JButton("LogOut");
+		btnLogout.setBounds(115, 166, 85, 21);
+		contentPane.add(btnLogout);
 	}
-
 }

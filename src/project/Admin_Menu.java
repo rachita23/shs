@@ -39,7 +39,7 @@ public class Admin_Menu extends JFrame {
 	public Admin_Menu() {
 		setTitle("AdminMenu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 363, 300);
+		setBounds(100, 100, 363, 327);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -114,6 +114,10 @@ public class Admin_Menu extends JFrame {
 		JLabel lblToUpdateA = new JLabel("To Update a Doctor's Profile");
 		lblToUpdateA.setBounds(31, 222, 135, 14);
 		contentPane.add(lblToUpdateA);
+		
+		JButton btnLogout = new JButton("LogOut");
+		btnLogout.setBounds(115, 259, 85, 21);
+		contentPane.add(btnLogout);
 	}
 
 }
