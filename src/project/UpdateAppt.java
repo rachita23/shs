@@ -29,8 +29,7 @@ public class UpdateAppt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UpdateAppt frame = new UpdateAppt();
-					frame.a = a;
+					UpdateAppt frame = new UpdateAppt(a);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,8 +41,10 @@ public class UpdateAppt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UpdateAppt() {
+	public UpdateAppt(Appt ap) {
 		setTitle("Appointment");
+		a = ap;
+		String day[] = a.apt.split(";");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 307, 300);
 		contentPane = new JPanel();
@@ -83,43 +84,52 @@ public class UpdateAppt extends JFrame {
 		textField.setBounds(90, 8, 155, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		textField.setText(day[0]);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(90, 33, 155, 20);
 		contentPane.add(textField_1);
+		textField_1.setText(day[1]);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(90, 58, 155, 20);
 		contentPane.add(textField_2);
+		textField_2.setText(day[2]);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(90, 83, 155, 20);
 		contentPane.add(textField_3);
+		textField_3.setText(day[3]);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(90, 108, 155, 20);
 		contentPane.add(textField_4);
+		textField_4.setText(day[4]);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(90, 133, 155, 20);
 		contentPane.add(textField_5);
+		textField_5.setText(day[5]);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		textField_6.setBounds(90, 158, 155, 20);
 		contentPane.add(textField_6);
+		textField_6.setText(day[6]);
 		
 		JButton btnNewButton = new JButton("Update");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				a.apt = ";"+textField.getText()+";"+textField_1.getText()+";"+textField_2.getText()+
-						";"+textField_3.getText()+";"+textField_4.getText()+";"+textField_5.getText()+";"+textField_6.getText();
+				a.apt = "; "+textField.getText()+" ; "+textField_1.getText()+" ; "+textField_2.getText()+
+						" ; "+textField_3.getText()+" ; "+textField_4.getText()+" ; "+textField_5.getText()+" ; "+textField_6.getText()+" ;";
+				
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(100, 213, 89, 23);
