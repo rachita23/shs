@@ -101,7 +101,9 @@ public class Give_Prescription extends JFrame {
 					ResultSet r1 = s.executeQuery(q);
 					int patid = r1.getInt("id");
 					String q1 = "Update into History"+patid+" set prescription = '"+textField_1.getText()+"', tests = '"+textField_2.getText()+"', disease = '"+textField_3.getText()+"'";
-					s.executeUpdate(q);
+					s.executeUpdate(q1);
+					String q2 = "Update into appt"+patid+" set status = 'YES' where pid = "+patid;
+					s.executeUpdate(q2);
 				}
 				catch(Exception z){
 					z.printStackTrace();
