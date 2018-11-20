@@ -120,6 +120,7 @@ public class UpdateAppt extends JFrame {
 				
 				a.apt = ";"+textField.getText()+";"+textField_1.getText()+";"+textField_2.getText()+
 						";"+textField_3.getText()+";"+textField_4.getText()+";"+textField_5.getText()+";"+textField_6.getText();
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(100, 213, 89, 23);
