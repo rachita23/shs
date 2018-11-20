@@ -62,66 +62,60 @@ public class Search extends JFrame {
 		sr.setBounds(10, 24, 328, 20);
 		contentPane.add(sr);
 		sr.setColumns(10);
-		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Name", "Position", "Department"
+			}
+		));
+		JScrollPane jsp = new JScrollPane(table);
+		jsp.setBounds(10, 68, 328, 169);
+		contentPane.add(jsp);	
+		//table.setBounds(10, 68, 328, 169);
+		//contentPane.add(table);
 		JButton btnNewButton = new JButton("Enter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String search = sr.getText();
 				DefaultTableModel md = (DefaultTableModel)table.getModel();
+				
+				//md = (DefaultTableModel)table.getModel();
 				try{
 					Connection con = Connection_DB.main();
 					Statement stmt = con.createStatement();
-					ResultSet rs;
+					ResultSet rs,r;
 					if(a==0) {
-						rs = stmt.executeQuery("select * from doctor where name = '"+search+"'");
+						rs = stmt.executeQuery("select * from doctor where name like '"+search+"'");
 					}
 					else {
-						rs = stmt.executeQuery("select * from doctor where position = '"+search+"'");
-					}
-					
-					table = new JTable();
-					table.setModel(new DefaultTableModel(
-						new Object[][] {
-							{"Name", "Position", "Department"},
-						},
-						new String[] {
-							"Name", "Position", "Department"
-						}
-					));
-					md = (DefaultTableModel)table.getModel();
-					
-					try{
+						rs = stmt.executeQuery("select * from doctor where position like '"+search+"'");
+					}	
+					//try{
 						
-						while(rs.next()){
-							String s = "Select name from department where id = "+Integer.toString(rs.getInt("dept"));
-							ResultSet r = stmt.executeQuery(s);
-							md.addRow(new Object[]{rs.getString("name"),rs.getString("position"),r.getString("name")});
-						}
-					}
-					catch(Exception e1){
-						e1.printStackTrace();
+					while(rs.next()){
+						String s = "Select name from department where id = "+rs.getInt("dept");
+						Statement stmt2 = con.createStatement();
+						r = stmt2.executeQuery(s);
+						while(r.next())
+							md.addRow(new Object[]{rs.getString(2),rs.getString(7),r.getString(1)});
 					}
 					
+							
 					
-					table.setBounds(10, 68, 328, 169);
-					contentPane.add(table);		
-					
-					//Connection_DB.close();
+					Connection_DB.close();
 				}
 				catch (Exception z){
 					z.printStackTrace();
 				}
-				JScrollPane jsp = new JScrollPane(table);
-				jsp.setBounds(10, 11, 562, 284);
-				contentPane.add(jsp);	
+				
 				
 			}
 		});
 		btnNewButton.setBounds(356, 23, 68, 23);
 		contentPane.add(btnNewButton);
-		
-		
-		
+	
 		btnView = new JButton("View");
 		btnView.setBounds(341, 256, 85, 21);
 		contentPane.add(btnView);

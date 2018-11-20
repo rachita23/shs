@@ -78,7 +78,7 @@ public class FullPatient extends JFrame {
 			e.printStackTrace();
 		}
 		
-		JScrollPane scrollPane = new JScrollPane();
+		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(10, 251, 414, -238);
 		contentPane.add(scrollPane);
 		

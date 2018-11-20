@@ -52,7 +52,6 @@ public class FullDoc extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Name", "Position", "Department"},
 			},
 			new String[] {
 				"Name", "Position", "Department"
