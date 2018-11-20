@@ -67,46 +67,19 @@ public class FullPatient extends JFrame {
 		DefaultTableModel md = (DefaultTableModel)table.getModel();
 		try{
 			
-			String q = "Select id,name from paitient where referedto ='"+doc.getInt("id")+"'";
+			String q = "Select pid from appt"+doc.getInt("id")+" where status = 'NO'";
 			Connection con = Connection_DB.main();
 			Statement s = con.createStatement();
 			ResultSet r = s.executeQuery(q);
 			while(r.next()){
-				md.addRow(new Object[]{Integer.toString(r.getInt(1)),r.getString(2)});
+				String q1 = "Select * from paitient where id ="+r.getInt("id");
+				ResultSet rs = s.executeQuery(q1);
+				md.addRow(new Object[]{Integer.toString(rs.getInt(1)),rs.getString(2)});
 			}
 			Connection_DB.close();
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-			
-		textField = new JTextField();
-		textField.setBounds(258, 232, 71, 21);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		String view = textField.getText();
-		JButton btnNewButton = new JButton("View Full");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try{
-					Connection con = Connection_DB.main();
-					Statement stmt = con.createStatement();
-					ResultSet rs;
-					rs = stmt.executeQuery("select * from paitient where name like '"+view+"'");
-					//Patient_Profile obj = new Patient_Profile();
-					Patient_Profile.Patient_Profile(rs.getInt(1));
-					Connection_DB.close();
-				}
-				catch (Exception z){
-					z.printStackTrace();
-				}
-			}
-		});
-		btnNewButton.setBounds(339, 232, 85, 31);
-		contentPane.add(btnNewButton);
-		
-		JLabel lblEnter = new JLabel("Enter Patient ID");
-		lblEnter.setBounds(169, 232, 79, 31);
-		contentPane.add(lblEnter);
 	}
 }
