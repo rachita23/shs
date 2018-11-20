@@ -26,7 +26,7 @@ public class Patient_Profile extends JFrame {
 				try {
 					Patient_Profile frame = new Patient_Profile(id);
 					frame.setVisible(true);
-					frame.id = id;
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,17 +37,18 @@ public class Patient_Profile extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Patient_Profile(int id) {
+	public Patient_Profile(int d) {
 		setTitle("Profile");
+		id = d;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 307, 425);
 		contentPane = new JPanel();
-		String name = "",gender=null,eid=null,address=null,loc=null,cr=null,doc=null;
-		int age=0,rn=0;//,id=0;
+		String name = "",gender=null,eid=null,address=null,loc=null,cr=null;//doc=null;
+		int age=0,rn=0,doc = 0;//,id=0;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		String q = "select * from paitient where id ='"+id+"'";
+		String q = "select * from paitient where id = "+id;
 		//JOptionPane.showMessageDialog(this, q);
 		try{
 			Connection con = Connection_DB.main();
@@ -59,10 +60,14 @@ public class Patient_Profile extends JFrame {
 				eid = rs.getString("email");
 				address = rs.getString("address");
 				cr = rs.getString("critical");
-				doc = rs.getString("referedto");
+				doc = rs.getInt("referedto");
 				age = rs.getInt("age");
 				rn = rs.getInt("roomno");
 				id = rs.getInt("id");
+				if(rn == 0)
+					loc = "OPD";
+				else
+					loc = "Local";
 			}
 			JButton btnHistory = new JButton("History");
 			btnHistory.addActionListener(new ActionListener() {
@@ -123,8 +128,6 @@ public class Patient_Profile extends JFrame {
 		contentPane.add(lb3);
 		lb3.setText(gender);
 		
-		
-		
 		JLabel lblLocation = new JLabel("Location:");
 		lblLocation.setBounds(10, 224, 46, 14);
 		contentPane.add(lblLocation);
@@ -132,6 +135,7 @@ public class Patient_Profile extends JFrame {
 		JLabel lblLocalopd = new JLabel("Local/OPD");
 		lblLocalopd.setBounds(81, 224, 121, 14);
 		contentPane.add(lblLocalopd);
+		lblLocalopd.setText(loc);
 		
 		JLabel lblRoomNo = new JLabel("Room No.:");
 		lblRoomNo.setBounds(10, 257, 61, 14);
@@ -158,6 +162,6 @@ public class Patient_Profile extends JFrame {
 		JLabel lblDoc = new JLabel("Rachita Nayyar");
 		lblDoc.setBounds(81, 325, 181, 14);
 		contentPane.add(lblDoc);
-		lblDoc.setText(doc);
+		lblDoc.setText(Integer.toString(doc));
 	}
 }

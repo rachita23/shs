@@ -56,15 +56,17 @@ public class FullPatient extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"ID", "Name"},
 			},
 			new String[] {
 				"ID", "Name"
 			}
 		));
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(10, 15, 414, 210);
+		contentPane.add(scrollPane);
 		DefaultTableModel md = (DefaultTableModel)table.getModel();
-		
 		try{
+			
 			String q = "Select id,name from paitient where referedto ='"+doc.getInt("id")+"'";
 			Connection con = Connection_DB.main();
 			Statement s = con.createStatement();
@@ -77,19 +79,27 @@ public class FullPatient extends JFrame {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(10, 251, 414, -238);
-		contentPane.add(scrollPane);
-		
+			
 		textField = new JTextField();
 		textField.setBounds(258, 232, 71, 21);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+		String view = textField.getText();
 		JButton btnNewButton = new JButton("View Full");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try{
+					Connection con = Connection_DB.main();
+					Statement stmt = con.createStatement();
+					ResultSet rs;
+					rs = stmt.executeQuery("select * from paitient where name like '"+view+"'");
+					//Patient_Profile obj = new Patient_Profile();
+					Patient_Profile.Patient_Profile(rs.getInt(1));
+					Connection_DB.close();
+				}
+				catch (Exception z){
+					z.printStackTrace();
+				}
 			}
 		});
 		btnNewButton.setBounds(339, 232, 85, 31);

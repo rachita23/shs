@@ -102,21 +102,40 @@ public class Search extends JFrame {
 							md.addRow(new Object[]{rs.getString(2),rs.getString(7),r.getString(1)});
 					}
 					
-							
-					
 					Connection_DB.close();
 				}
 				catch (Exception z){
 					z.printStackTrace();
 				}
-				
-				
+					
 			}
 		});
 		btnNewButton.setBounds(356, 23, 68, 23);
 		contentPane.add(btnNewButton);
-	
+
+		textField_1 = new JTextField();
+		textField_1.setBounds(235, 258, 96, 19);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		String view = textField_1.getText();
 		btnView = new JButton("View");
+		btnView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					Connection con = Connection_DB.main();
+					Statement stmt = con.createStatement();
+					ResultSet rs;
+					rs = stmt.executeQuery("select * from doctor where name like '"+view+"'");
+					//Doctor_Profile obj = new Doctor_Profile();
+					Doctor_Profile.Doctor_Profile(rs.getInt(1));
+					//obj.Doctor_Profile(rs.getInt(1));
+					Connection_DB.close();
+				}
+				catch (Exception z){
+					z.printStackTrace();
+				}
+			}
+		});
 		btnView.setBounds(341, 256, 85, 21);
 		contentPane.add(btnView);
 		
@@ -125,10 +144,6 @@ public class Search extends JFrame {
 		lblEnterDoctorsnameTo.setBounds(0, 251, 226, 28);
 		contentPane.add(lblEnterDoctorsnameTo);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(235, 258, 96, 19);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 		
 	}
 }

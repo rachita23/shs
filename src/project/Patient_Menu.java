@@ -23,7 +23,7 @@ public class Patient_Menu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Patient_Menu frame = new Patient_Menu(a);
+					Patient_Menu frame = new Patient_Menu();
 					frame.setVisible(true);
 					frame.id = a;
 				} catch (Exception e) {
@@ -36,7 +36,7 @@ public class Patient_Menu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Patient_Menu(int a) {
+	public Patient_Menu() {
 		setTitle("Patient Menu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 363, 206);
@@ -48,8 +48,7 @@ public class Patient_Menu extends JFrame {
 		JButton btnNewButton = new JButton("Profile");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient_Profile obj = new Patient_Profile(1);
-				obj.Patient_Profile(id);
+				Patient_Profile.Patient_Profile(id);
 			}
 		});
 		btnNewButton.setBounds(220, 22, 89, 23);

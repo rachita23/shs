@@ -82,7 +82,7 @@ public class Login_Signin extends JFrame {
 						String res = r.getString("password");
 						if(pass.equals(res)){
 							int a = r.getInt("id");
-							Patient_Menu obj = new Patient_Menu(a);
+							Patient_Menu obj = new Patient_Menu();
 							obj.Patient_Menu(a);
 						}
 						else{

@@ -1,7 +1,6 @@
 package project;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,7 +23,7 @@ public class Doctor_Profile extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Doctor_Profile frame = new Doctor_Profile();
+					Doctor_Profile frame = new Doctor_Profile(id);
 					frame.setVisible(true);
 					frame.id = id;
 				} catch (Exception e) {
@@ -37,17 +36,18 @@ public class Doctor_Profile extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Doctor_Profile() {
+	public Doctor_Profile(int d) {
 		setTitle("Profile");
+		id = d;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 307, 458);
 		contentPane = new JPanel();
-		String name = "",gender=null,eid=null,address=null,at=null,pos=null;
+		String name = null,gender=null,eid=null,address=null,at=null,pos=null;
 		int age=0,rn=0,dept=0;//,id=0;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		String q = "select * from doctor where id ='"+id+"'";
+		String q = "select * from doctor where id ="+id;
 		//JOptionPane.showMessageDialog(this, q);
 		try{
 			Connection con = Connection_DB.main();
@@ -65,6 +65,7 @@ public class Doctor_Profile extends JFrame {
 				id = rs.getInt("id");
 				dept = rs.getInt("dept");
 			}
+			Connection_DB.close();
 		}
 			catch (Exception z) {
 				z.printStackTrace();
