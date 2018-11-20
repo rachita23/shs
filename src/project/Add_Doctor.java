@@ -167,6 +167,9 @@ public class Add_Doctor extends JFrame {
 					Statement s = con.createStatement();
 					s.executeUpdate(q);
 					
+					String create = "CREATE TABLE Appt"+id+"(pid INT,"+"day VARCHAR(10),"+"status varchar(3))";
+					s.executeUpdate(create);
+					
 					Connection_DB.close();
 					dispose();
 				}
