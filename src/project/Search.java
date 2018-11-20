@@ -117,17 +117,19 @@ public class Search extends JFrame {
 		textField_1.setBounds(235, 258, 96, 19);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		String view = textField_1.getText();
 		btnView = new JButton("View");
 		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
+					String view = textField_1.getText();
 					Connection con = Connection_DB.main();
 					Statement stmt = con.createStatement();
 					ResultSet rs;
-					rs = stmt.executeQuery("select * from doctor where name like '"+view+"'");
+					rs = stmt.executeQuery("select * from doctor where name = '"+view+"'");
 					//Doctor_Profile obj = new Doctor_Profile();
-					Doctor_Profile.Doctor_Profile(rs.getInt(1));
+					while(rs.next()) {
+						Doctor_Profile.Doctor_Profile(rs.getInt(1),a);
+					}
 					//obj.Doctor_Profile(rs.getInt(1));
 					Connection_DB.close();
 				}

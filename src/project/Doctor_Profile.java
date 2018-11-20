@@ -16,16 +16,18 @@ public class Doctor_Profile extends JFrame {
 
 	private JPanel contentPane;
 	public int id;
+	public int pid;
 	/**
 	 * Launch the application.
 	 */
-	public static void Doctor_Profile(int id) {
+	public static void Doctor_Profile(int id, int pid) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Doctor_Profile frame = new Doctor_Profile(id);
 					frame.setVisible(true);
-					frame.id = id;
+					//frame.id = id;
+					frame.pid = pid;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -157,7 +159,7 @@ public class Doctor_Profile extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BookAppt obj = new BookAppt();
-				obj.BookAppt();
+				obj.BookAppt(id,pid);
 			}
 		});
 		btnNewButton.setBounds(81, 369, 126, 39);

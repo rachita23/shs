@@ -145,7 +145,7 @@ public class SignUp extends JFrame {
 					}
 					String q = "Insert into paitient values('"+id+"','"+name+"','"+pass+"','"+address+"','"+email+"','"+gender+"','nil',0,0,0,'"+age+"')";
 					s.executeUpdate(q);
-					String create = "CREATE TABLE History"+id+"(visit_date TIMESTAMP,"+"discharge_date TIMESTAMP,"+"doctor varchar(50),"+"prescription varchar(100),"+"tests varchar(100),"+"disease varchar(20),"+"critical varchar(3))";
+					String create = "CREATE TABLE History"+id+"(visit_date varchar(20),"+"discharge_date varchar(20),"+"doctor varchar(50),"+"prescription varchar(100),"+"tests varchar(100),"+"disease varchar(20),"+"critical varchar(3))";
 					s.executeUpdate(create);
 					Login_Signin obj = new Login_Signin();
 					obj.Login_Signin();
